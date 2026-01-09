@@ -30,7 +30,7 @@ L.ProgressOverlay = window.L.Layer.extend({
 		if (window.ThisIsAMobileApp) {
 			productName = window.MobileAppName;
 		} else {
-			productName = (typeof brandProductName !== 'undefined') ? brandProductName : 'Collabora Online Development Edition (unbranded)';
+			productName = (typeof brandProductName !== 'undefined') ? brandProductName : 'TeamSync Editor ';
 		}
 		this._brandLabel = window.L.DomUtil.create('div', 'leaflet-progress-label brand-label', this._container);
 		this._brandLabel.innerHTML = productName;

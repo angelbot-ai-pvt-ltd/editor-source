@@ -1,7 +1,7 @@
 /* -*- js-indent-level: 8 -*- */
 /* global app */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -2291,7 +2291,7 @@ class Menubar extends window.L.Control {
 		} else if (id === 'report-an-issue') {
 			window.open('https://github.com/CollaboraOnline/online/issues', '_blank', 'noopener');
 		} else if (id === 'forum') {
-			window.open('https://forum.collaboraonline.com', '_blank', 'noopener');
+			window.open('https://forum.teamsync.dev', '_blank', 'noopener');
 		} else if (id === 'inserthyperlink') {
 			app.dispatcher.dispatch('hyperlinkdialog');
 		} else if (id === 'keyboard-shortcuts' || id === 'online-help') {

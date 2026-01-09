@@ -4444,7 +4444,7 @@ msgstr ""
 #: src/app/SocketBase.ts:189
 #, fuzzy
 msgid "Oops, there is a problem connecting to {productname}: "
-msgstr "Collabora Online ахь аимадара аан аиԥҟьара : "
+msgstr "TeamSync Editor ахь аимадара аан аиԥҟьара : "
 
 #: src/core/Socket.js:499
 msgid "Server is now reachable. We have to refresh the page now."
@@ -4497,7 +4497,7 @@ msgstr ""
 #: src/core/Socket.js:734
 #, fuzzy
 msgid "Oops, there is a problem connecting the document"
-msgstr "Collabora Online ахь аимадара аан аиԥҟьара : "
+msgstr "TeamSync Editor ахь аимадара аан аиԥҟьара : "
 
 #: src/core/Socket.js:738
 msgid "Server is down, restarting automatically. Please wait."

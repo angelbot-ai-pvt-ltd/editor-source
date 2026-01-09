@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4; fill-column: 100 -*- */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -2480,7 +2480,7 @@ void COOLWSD::displayHelp()
     Poco::Util::HelpFormatter helpFormatter(options());
     helpFormatter.setCommand(commandName());
     helpFormatter.setUsage("OPTIONS");
-    helpFormatter.setHeader("Collabora Online WebSocket server.");
+    helpFormatter.setHeader("TeamSync Editor WebSocket server.");
     helpFormatter.format(std::cout);
 }
 

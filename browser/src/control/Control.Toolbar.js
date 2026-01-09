@@ -1,7 +1,7 @@
 /* -*- js-indent-level: 8; fill-column: 100 -*- */
 
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -11,7 +11,7 @@
  */
 
 /*
- * Collabora Online toolbar
+ * TeamSync Editor toolbar
  */
 
 /* global app $ _ _UNO JSDialog URLPopUpSection cool */

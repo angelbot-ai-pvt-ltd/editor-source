@@ -5226,7 +5226,7 @@ msgstr "Doneu un cop d'ull a la nova {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online, edició de desenvolupament"
+msgstr "TeamSync Editor, edició de desenvolupament"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

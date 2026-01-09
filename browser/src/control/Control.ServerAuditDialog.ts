@@ -1,7 +1,7 @@
 /* -*- js-indent-level: 8 -*- */
 
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -57,12 +57,12 @@ class ServerAuditDialog {
 				sslverifyfail: [
 					_('Your WOPI server is not secure: SSL verification failed'),
 					'SDK: ssl-configuration',
-					'https://sdk.collaboraonline.com/docs/installation/Configuration.html?highlight=ssl#ssl-configuration',
+					'https://sdk.teamsync.dev/docs/installation/Configuration.html?highlight=ssl#ssl-configuration',
 				],
 				ok: [
 					_('No problems with SSL verification detected'),
 					'SDK: ssl-configuration',
-					'https://sdk.collaboraonline.com/docs/installation/Configuration.html?highlight=ssl#ssl-configuration',
+					'https://sdk.teamsync.dev/docs/installation/Configuration.html?highlight=ssl#ssl-configuration',
 				],
 			},
 			contained: {
@@ -95,12 +95,12 @@ class ServerAuditDialog {
 						'Your server is configured with insufficient hardware resources, which may lead to poor performance.',
 					),
 					'SDK: hardware-requirements',
-					'https://sdk.collaboraonline.com/docs/installation/Configuration.html#performance',
+					'https://sdk.teamsync.dev/docs/installation/Configuration.html#performance',
 				],
 				ok: [
 					_('Hardware resources are sufficient for optimal performance'),
 					'SDK: hardware-requirements',
-					'https://sdk.collaboraonline.com/docs/installation/Configuration.html#performance',
+					'https://sdk.teamsync.dev/docs/installation/Configuration.html#performance',
 				],
 			},
 			bindmounted: {
@@ -127,19 +127,19 @@ class ServerAuditDialog {
 				missing: [
 					_('The IsAdminUser property is not set by integration'),
 					'SDK: IsAdminUser',
-					'https://sdk.collaboraonline.com/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
+					'https://sdk.teamsync.dev/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
 				],
 				deprecated: [
 					_(
 						'Used deprecated is_admin field, integration should use IsAdminUser property instead',
 					),
 					'SDK: IsAdminUser',
-					'https://sdk.collaboraonline.com/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
+					'https://sdk.teamsync.dev/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
 				],
 				ok: [
 					_('The IsAdminUser user property is set by integration'),
 					'SDK: IsAdminUser',
-					'https://sdk.collaboraonline.com/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
+					'https://sdk.teamsync.dev/docs/advanced_integration.html?highlight=IsAdminUser#isadminuser',
 				],
 			},
 			postmessage: {
@@ -147,12 +147,12 @@ class ServerAuditDialog {
 				ok: [
 					_('PostMessage API is initialized'),
 					'SDK: post-message-initialization',
-					'https://sdk.collaboraonline.com/docs/postmessage_api.html#initialization',
+					'https://sdk.teamsync.dev/docs/postmessage_api.html#initialization',
 				],
 				hostnotready: [
 					_('Integrator is not ready for PostMessage calls'),
 					'SDK: post-message-initialization',
-					'https://sdk.collaboraonline.com/docs/postmessage_api.html#initialization',
+					'https://sdk.teamsync.dev/docs/postmessage_api.html#initialization',
 				],
 			},
 

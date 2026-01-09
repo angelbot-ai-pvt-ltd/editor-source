@@ -5145,7 +5145,7 @@ msgstr "Режим презентації для цього документа �
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "Ваш сервер Collabora Online потребує оновлення. Доступна версія {0}."
+msgstr "Ваш сервер TeamSync Editor потребує оновлення. Доступна версія {0}."
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5235,7 +5235,7 @@ msgstr "Увімкнути анімацію"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Вітаємо в Collabora Online"
+msgstr "Вітаємо в TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5244,7 +5244,7 @@ msgstr "Ознайомтеся з новою {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online для розробників"
+msgstr "TeamSync Editor для розробників"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

@@ -1,6 +1,6 @@
 /* -*- js-indent-level: 8 -*- */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -558,7 +558,7 @@ window.L.Map.WOPI = window.L.Handler.extend({
 
 		// For all other messages, warn if trying to interact before we are completely loaded
 		if (!this._appLoaded) {
-			window.app.console.error('Collabora Online not loaded yet. Listen for App_LoadingStatus (Document_Loaded) event before using PostMessage API. Ignoring post message \'' + msg.MessageId + '\'.');
+			window.app.console.error('TeamSync Editor not loaded yet. Listen for App_LoadingStatus (Document_Loaded) event before using PostMessage API. Ignoring post message \'' + msg.MessageId + '\'.');
 			return;
 		}
 

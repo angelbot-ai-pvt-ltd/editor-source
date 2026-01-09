@@ -1,6 +1,6 @@
 /* -*- js-indent-level: 8 -*- */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -37,7 +37,7 @@ errorMessages.docloadtimeout = _('Failed to load the document. This document is 
 errorMessages.docunloadingretry = _('Cleaning up the document from the last session.');
 errorMessages.docunloadinggiveup = _('We are in the process of cleaning up this document from the last session, please try again later.');
 errorMessages.clusterconfiguration = _('Your {productname} cluster appear to be mis-configured or scaling rapidly - please contact your system administrator. Continuing with editing may result in multiple users not seeing each other, conflicts in the document storage and/or copy/paste problems. Expected serverId {0} for routeToken {1} but connected to serverId {2}');
-errorMessages.websocketproxyfailure = _('Failed to establish socket connection or socket connection closed unexpectedly. The reverse proxy might be misconfigured, please contact the administrator. For more info on proxy configuration please checkout https://sdk.collaboraonline.com/docs/installation/Proxy_settings.html');
+errorMessages.websocketproxyfailure = _('Failed to establish socket connection or socket connection closed unexpectedly. The reverse proxy might be misconfigured, please contact the administrator. For more info on proxy configuration please checkout https://sdk.teamsync.dev/docs/installation/Proxy_settings.html');
 errorMessages.websocketgenericfailure = _('Failed to establish socket connection or socket connection closed unexpectedly.');
 if (window.ThisIsAMobileApp) {
 	errorMessages.storage = {

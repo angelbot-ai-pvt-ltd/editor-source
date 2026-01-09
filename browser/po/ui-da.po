@@ -5162,7 +5162,7 @@ msgstr "Præsentationstilstand er deaktiveret for dette dokument"
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "Din Collabora Online server skal opdateres. Version {0} er tilgængelig."
+msgstr "Din TeamSync Editor server skal opdateres. Version {0} er tilgængelig."
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5252,7 +5252,7 @@ msgstr ""
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Collabora Online Velkommen"
+msgstr "TeamSync Editor Velkommen"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5261,7 +5261,7 @@ msgstr "Udforsk den nye {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online Development Edition"
+msgstr "TeamSync Editor Development Edition"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

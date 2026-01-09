@@ -5152,7 +5152,7 @@ msgstr "Mode presentasi telah dinonaktifkan untuk dokumen ini"
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "Server Collabora Online Anda membutuhkan pembaruan. Versi {0} tersedia."
+msgstr "Server TeamSync Editor Anda membutuhkan pembaruan. Versi {0} tersedia."
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5242,7 +5242,7 @@ msgstr "Aktifkan Animasi"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Selamat Datang di Collabora Online"
+msgstr "Selamat Datang di TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5251,7 +5251,7 @@ msgstr "Jelajahi {coolversion} Baru"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online Edisi Pengembangan"
+msgstr "TeamSync Editor Edisi Pengembangan"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

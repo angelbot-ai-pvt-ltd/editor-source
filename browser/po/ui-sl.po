@@ -5242,7 +5242,7 @@ msgstr "Omogoči animacije"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Dobrodošli v Collabora Online"
+msgstr "Dobrodošli v TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"

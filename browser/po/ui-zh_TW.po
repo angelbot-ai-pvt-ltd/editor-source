@@ -3816,7 +3816,7 @@ msgstr "正在更新引文"
 msgid ""
 "Unlinking citations will prevent Collabora Online from updating citations "
 "and bibliography in this document."
-msgstr "取消引用連結將阻止 Collabora Online 更新本文檔中的引用和參考書目。"
+msgstr "取消引用連結將阻止 TeamSync Editor 更新本文檔中的引用和參考書目。"
 
 #: src/control/HRuler.ts:597 src/control/HRuler.ts:769
 msgid "Left Margin"
@@ -5060,7 +5060,7 @@ msgstr "該文檔的展示模式已停用"
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "您的 Collabora Online 伺服器需要更新。已有版本 {0}。"
+msgstr "您的 TeamSync Editor 伺服器需要更新。已有版本 {0}。"
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5150,7 +5150,7 @@ msgstr ""
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "歡近來到Collabora Online"
+msgstr "歡近來到TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"

@@ -5139,7 +5139,7 @@ msgstr "Presentationsläge har inaktiverats för detta dokumentet"
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "Din Collabora Online-server kan uppdateras. Version {0} är tillgänglig."
+msgstr "Din TeamSync Editor-server kan uppdateras. Version {0} är tillgänglig."
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5229,7 +5229,7 @@ msgstr "Aktivera animationer"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Collabora Online Välkommen"
+msgstr "TeamSync Editor Välkommen"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5238,7 +5238,7 @@ msgstr "Utforska den nya {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online-utvecklingsversion"
+msgstr "TeamSync Editor-utvecklingsversion"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

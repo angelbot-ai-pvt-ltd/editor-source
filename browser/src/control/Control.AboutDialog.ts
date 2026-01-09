@@ -2,7 +2,7 @@
 /* -*- js-indent-level: 8 -*- */
 
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -90,7 +90,7 @@ class AboutDialog {
 			productName =
 				typeof brandProductName === 'string' && brandProductName.length > 0
 					? brandProductName
-					: 'Collabora Online Development Edition (unbranded)';
+					: 'TeamSync Editor ';
 		}
 		var productURL =
 			typeof brandProductURL === 'string' && brandProductURL.length > 0

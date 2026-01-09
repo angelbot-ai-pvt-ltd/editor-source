@@ -4466,7 +4466,7 @@ msgstr ""
 #: src/app/SocketBase.ts:189
 #, fuzzy
 msgid "Oops, there is a problem connecting to {productname}: "
-msgstr "Қап, Collabora Online жүйесіне байланысу қатесі орын алды : "
+msgstr "Қап, TeamSync Editor жүйесіне байланысу қатесі орын алды : "
 
 #: src/core/Socket.js:499
 msgid "Server is now reachable. We have to refresh the page now."
@@ -4519,7 +4519,7 @@ msgstr "Сервер техникалық қызмет көрсету үшін �
 #: src/core/Socket.js:734
 #, fuzzy
 msgid "Oops, there is a problem connecting the document"
-msgstr "Қап, Collabora Online жүйесіне байланысу қатесі орын алды : "
+msgstr "Қап, TeamSync Editor жүйесіне байланысу қатесі орын алды : "
 
 #: src/core/Socket.js:738
 msgid "Server is down, restarting automatically. Please wait."
@@ -5240,7 +5240,7 @@ msgstr ""
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Collabora Online-ға қош келдіңіз"
+msgstr "TeamSync Editor-ға қош келдіңіз"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5249,7 +5249,7 @@ msgstr "Жаңа {coolversion} туралы білу"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online әзірлеушілер нұсқасы"
+msgstr "TeamSync Editor әзірлеушілер нұсқасы"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 #, fuzzy

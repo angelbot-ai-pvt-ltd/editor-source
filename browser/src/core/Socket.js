@@ -1,6 +1,6 @@
 /* -*- js-indent-level: 8; fill-column: 100 -*- */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -435,7 +435,7 @@ app.definitions.Socket = class Socket extends SocketBase {
 			if (window.indirectSocket) {
 				if (window.expectedServerId && window.expectedServerId != this.WSDServer.Id) {
 					if (this.IndirectSocketReconnectCount++ >= 3) {
-						var msg = errorMessages.clusterconfiguration.replace('{productname}', (typeof brandProductName !== 'undefined' ? brandProductName : 'Collabora Online Development Edition (unbranded)'));
+						var msg = errorMessages.clusterconfiguration.replace('{productname}', (typeof brandProductName !== 'undefined' ? brandProductName : 'TeamSync Editor '));
 						msg = msg.replace('{0}', window.expectedServerId);
 						msg = msg.replace('{1}', window.routeToken);
 						msg = msg.replace('{2}', this.WSDServer.Id);
@@ -950,7 +950,7 @@ app.definitions.Socket = class Socket extends SocketBase {
 				textMsg = textMsg.replace('{docs}', command.params[0]);
 				textMsg = textMsg.replace('{connections}', command.params[1]);
 				textMsg = textMsg.replace('{productname}', (typeof brandProductName !== 'undefined' ?
-					brandProductName : 'Collabora Online Development Edition (unbranded)'));
+					brandProductName : 'TeamSync Editor '));
 				this._map.fire('infobar',
 					{
 						msg: textMsg,

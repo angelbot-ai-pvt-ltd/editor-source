@@ -1,6 +1,6 @@
 /* -*- js-indent-level: 8; fill-column: 100 -*- */
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -1529,7 +1529,7 @@ window.L.Control.Zotero = window.L.Control.extend({
 
 	unlinkCitations: function() {
 		this.map.uiManager.showInfoModal('zoterounlinkwarn', _('Unlink Citations'),
-			_('Unlinking citations will prevent Collabora Online from updating citations and bibliography in this document.'),
+			_('Unlinking citations will prevent TeamSync Editor from updating citations and bibliography in this document.'),
 			null, _('Confirm'), this.handleUnlinkCitations.bind(this));
 	},
 

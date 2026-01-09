@@ -5244,7 +5244,7 @@ msgstr "ເປີດອະນິເມຊັນ"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "ຍິນດີຕ້ອນຮັບສູ່ Collabora Online"
+msgstr "ຍິນດີຕ້ອນຮັບສູ່ TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5253,7 +5253,7 @@ msgstr "ສຳຫຼວດ {coolversion} ໃໝ່"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online ສະບັບພັດທະນາ"
+msgstr "TeamSync Editor ສະບັບພັດທະນາ"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

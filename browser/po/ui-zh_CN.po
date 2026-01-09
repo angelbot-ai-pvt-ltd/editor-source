@@ -3803,7 +3803,7 @@ msgstr "正在更新引文"
 msgid ""
 "Unlinking citations will prevent Collabora Online from updating citations "
 "and bibliography in this document."
-msgstr "取消引用链接将阻止 Collabora Online 更新本文档中的引用和参考书目。"
+msgstr "取消引用链接将阻止 TeamSync Editor 更新本文档中的引用和参考书目。"
 
 #: src/control/HRuler.ts:597 src/control/HRuler.ts:769
 msgid "Left Margin"
@@ -5044,7 +5044,7 @@ msgstr "该文档演示模式已被禁用"
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "您的Collabora Online版本需要更新。{0}版本可用。"
+msgstr "您的TeamSync Editor版本需要更新。{0}版本可用。"
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5134,7 +5134,7 @@ msgstr "启用动画"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Collabora Online 欢迎"
+msgstr "TeamSync Editor 欢迎"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5143,7 +5143,7 @@ msgstr "体验新版本 {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online 开发版本（CODE）"
+msgstr "TeamSync Editor 开发版本（CODE）"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

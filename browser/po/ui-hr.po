@@ -5248,7 +5248,7 @@ msgstr "Aktiviraj animacije"
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Collabora Online dobrodošlica"
+msgstr "TeamSync Editor dobrodošlica"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5257,7 +5257,7 @@ msgstr "Istraži novu {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Razvojno Collabora Online izdanje"
+msgstr "Razvojno TeamSync Editor izdanje"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 msgid ""

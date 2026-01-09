@@ -1,7 +1,7 @@
 {
-  "name": "cool",
+  "name": "teamsync-editor",
   "version": "0.8.0-dev",
-  "description": "Collabora Online front-end",
+  "description": "TeamSync Editor - Collaborative Document Editing",
   "devDependencies": {
     "@braintree/sanitize-url": "6.0.2",
     "@types/hammerjs": "^2.0.46",

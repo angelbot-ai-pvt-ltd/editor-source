@@ -4445,7 +4445,7 @@ msgstr ""
 #: src/app/SocketBase.ts:189
 #, fuzzy
 msgid "Oops, there is a problem connecting to {productname}: "
-msgstr "Obbo! Collabora Online xizmatiga ulanishda muammo yuz berdi: "
+msgstr "Obbo! TeamSync Editor xizmatiga ulanishda muammo yuz berdi: "
 
 #: src/core/Socket.js:499
 msgid "Server is now reachable. We have to refresh the page now."
@@ -4498,7 +4498,7 @@ msgstr ""
 #: src/core/Socket.js:734
 #, fuzzy
 msgid "Oops, there is a problem connecting the document"
-msgstr "Obbo! Collabora Online xizmatiga ulanishda muammo yuz berdi: "
+msgstr "Obbo! TeamSync Editor xizmatiga ulanishda muammo yuz berdi: "
 
 #: src/core/Socket.js:738
 msgid "Server is down, restarting automatically. Please wait."

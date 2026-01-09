@@ -5156,7 +5156,7 @@ msgstr "Режим презентации был запрещён для это�
 
 #: src/map/handler/Map.VersionBar.js:50
 msgid "Your Collabora Online server needs updating. Version {0} is available."
-msgstr "Ваш сервер Collabora Online требует обновления. Доступна версия {0}."
+msgstr "Ваш сервер TeamSync Editor требует обновления. Доступна версия {0}."
 
 #: src/map/handler/Map.WOPI.js:172
 msgid "Creating new file from template..."
@@ -5246,7 +5246,7 @@ msgstr ""
 
 #: welcome/welcome.html%2Bhtml.head.title:9-3
 msgid "Collabora Online Welcome"
-msgstr "Добро пожаловать в Collabora Online"
+msgstr "Добро пожаловать в TeamSync Editor"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h1:26-7
 msgid "Explore The New {coolversion}"
@@ -5255,7 +5255,7 @@ msgstr "Узнайте о новой {coolversion}"
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:27-7
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.h2:38-7
 msgid "Collabora Online Development Edition"
-msgstr "Collabora Online для разработчиков"
+msgstr "TeamSync Editor для разработчиков"
 
 #: welcome/welcome.html%2Bhtml.body.div.div.div.div.p:28-7
 #, fuzzy

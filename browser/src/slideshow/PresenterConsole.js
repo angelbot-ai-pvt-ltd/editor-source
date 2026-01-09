@@ -1,7 +1,7 @@
 /* -*- js-indent-level: 8 -*- */
 
 /*
- * Copyright the Collabora Online contributors.
+ * Copyright the TeamSync Editor contributors.
  *
  * SPDX-License-Identifier: MPL-2.0
  *
@@ -848,8 +848,8 @@ class PresenterConsole {
 				);
 				break;
 			case 'help':
-				// TODO. add help.collaboraonline.com
-				window.open('https://collaboraonline.com', '_blank', 'noopener');
+				// TODO. add help.teamsync.dev
+				window.open('https://teamsync.dev', '_blank', 'noopener');
 				break;
 			case 'notes':
 				if (this._proxyPresenter.document.contains(this._notes)) {
