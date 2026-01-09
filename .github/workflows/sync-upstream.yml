@@ -1,0 +1,48 @@
+name: Monthly Sync with Upstream Collabora
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Monthly on the 1st at midnight UTC
+  workflow_dispatch:      # Manual trigger via GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          ref: teamsync-25.04
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/CollaboraOnline/online.git
+
+      - name: Fetch upstream changes
+        run: git fetch upstream distro/collabora/co-25.04
+
+      - name: Merge upstream into teamsync branch
+        run: |
+          git merge upstream/distro/collabora/co-25.04 \
+            --no-edit \
+            -m "Merge upstream Collabora co-25.04 ($(date +%Y-%m-%d))"
+
+      - name: Push merged changes
+        run: git push origin teamsync-25.04
+
+      - name: Notify on success
+        if: success()
+        run: echo "Successfully synced with upstream Collabora co-25.04"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Merge conflicts detected!"
+          echo "Manual intervention required to resolve conflicts."
+          echo "See: https://github.com/angelbot-ai-pvt-ltd/editor-source/actions"
