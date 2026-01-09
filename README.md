@@ -4,35 +4,9 @@
 
 ## Development bits
 
-This project has several components:
-* **wsd/**
-  * The Web Services Daemon - which accepts external connections
-* **kit/**
-  * The client which lives in its own chroot and renders documents
-* **common/**
-  * Shared code between these processes
-* **browser/**
-  * The client side JavaScript component
-* **test/**
-  * C++ based unit tests
-* **cypress_test/**
-  * JavaScript based integration tests
-
 
 ### Getting changes into 25.04-mobile
 
-You should still develop against `main`, even if you're working on
-mobile-only features. Changes made in `main` will be moved into the
-`distro/collabora/co-25.04` branch according to the release schedule. Changes
-from the `distro/collabora/co-25.04` branch are then regularly cherry-picked
-into the `distro/collabora/co-25.04-mobile` branch.
-
-If you have a change which you want to get into mobile snapshots or releases
-more quickly, you should still develop it against `main`. When it's merged
-into `main`, you should make a backport pull request against
-`distro/collabora/co-25.04-mobile`. Please don't make pull requests directly
-against `distro/collabora/co-25.04-mobile` (i.e. without the change first being
-merged into `main`).
 
 ## Admin Panel
 
@@ -59,5 +33,3 @@ websocket.
 
 ## Architecture
 
-
-## Enjoy!
