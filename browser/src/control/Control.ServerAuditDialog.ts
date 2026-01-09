@@ -74,6 +74,11 @@ class ServerAuditDialog {
 					'SDK: nocaps',
 					'',
 				],
+				'cloud-ok': [
+					_('Cloud mode: Using process-level document isolation'),
+					'',
+					'',
+				],
 				ok: [_('Each document is securely contained'), 'SDK: nocaps', ''],
 			},
 			seccomp: {
@@ -108,6 +113,11 @@ class ServerAuditDialog {
 				slow: [
 					_('Slow Kit jail setup with copying, cannot bind-mount.'),
 					'SDK: bindmount',
+					'',
+				],
+				'cloud-ok': [
+					_('Cloud mode: Using copy-based jail setup (optimized for containers)'),
+					'',
 					'',
 				],
 				ok: [_('Fast kit jail bind mounting enabled'), 'SDK: bindmount', ''],
@@ -197,7 +207,21 @@ class ServerAuditDialog {
 		const errorIcon = { collapsed: 'serverauditerror.svg' };
 		const okIcon = { collapsed: 'serverauditok.svg' };
 
-		const source = sourceUnsorted.sort(
+		// Transform cloud-mode warnings to informational
+		const isCloud = this.isCloudMode();
+		const transformedSource = sourceUnsorted.map((entry: AuditEntry) => {
+			if (isCloud) {
+				if (entry.code === 'contained' && entry.status === 'uncontained') {
+					return { code: entry.code, status: 'cloud-ok' };
+				}
+				if (entry.code === 'bindmounted' && entry.status === 'slow') {
+					return { code: entry.code, status: 'cloud-ok' };
+				}
+			}
+			return entry;
+		});
+
+		const source = transformedSource.sort(
 			(x: AuditEntry, y: AuditEntry) =>
 				(this.errorCodes[x.code] ? this.errorCodes[x.code].priority : 100) -
 				(this.errorCodes[y.code] ? this.errorCodes[y.code].priority : 100),
@@ -211,7 +235,9 @@ class ServerAuditDialog {
 					entries.push({
 						row: 0,
 						columns: [
-							entry.status === 'ok' || this.isInfoEntry(entry)
+							entry.status === 'ok' ||
+							entry.status === 'cloud-ok' ||
+							this.isInfoEntry(entry)
 								? okIcon
 								: errorIcon,
 							{ text: status[0] },
@@ -355,8 +381,26 @@ class ServerAuditDialog {
 		return entry.code.startsWith('info_');
 	}
 
+	private isCloudMode(): boolean {
+		if (!app.serverAudit) return false;
+
+		const namespaces = app.serverAudit.find(
+			(e: AuditEntry) => e.code === 'info_namespaces',
+		);
+		const bindmounted = app.serverAudit.find(
+			(e: AuditEntry) => e.code === 'bindmounted',
+		);
+
+		// Cloud mode: no namespaces AND no bind-mounting
+		return namespaces?.status === 'false' && bindmounted?.status === 'slow';
+	}
+
 	private isErrorEntry(entry: AuditEntry): boolean {
-		return !this.isInfoEntry(entry) && entry.status !== 'ok';
+		return (
+			!this.isInfoEntry(entry) &&
+			entry.status !== 'ok' &&
+			entry.status !== 'cloud-ok'
+		);
 	}
 
 	private onServerAudit() {
