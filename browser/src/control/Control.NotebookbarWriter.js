@@ -431,18 +431,6 @@ window.L.Control.NotebookbarWriter = window.L.Control.Notebookbar.extend({
 					'type': 'toolbox',
 					'children': [
 						{
-							'id': 'forum',
-							'type': 'bigtoolitem',
-							'text': _('Forum'),
-							'command': '.uno:ForumHelp',
-							'accessibility': { focusBack: true, combination: 'C', de: null }
-						}
-					]
-				},
-				{
-					'type': 'toolbox',
-					'children': [
-						{
 							'id': 'online-help',
 							'type': 'bigtoolitem',
 							'text': _('Online Help'),
@@ -501,19 +489,6 @@ window.L.Control.NotebookbarWriter = window.L.Control.Notebookbar.extend({
 				'type': 'separator',
 				'orientation': 'vertical'
 				} : {},
-				{
-					'type': 'toolbox',
-					'children': [
-						{
-							'id': 'report-an-issue',
-							'type': 'bigtoolitem',
-							'text': _('Report an issue'),
-							'command': '.uno:ReportIssue',
-							'accessibility': { focusBack: true, combination: 'K', de: null }
-						},
-					]
-				},
-				{ 'type': 'separator', 'id': 'help-reportissue-break', 'orientation': 'vertical' },
 				hasLatestUpdates ?
 					{
 						'type': 'toolbox',
