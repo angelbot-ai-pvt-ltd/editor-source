@@ -1,0 +1,161 @@
+# =============================================================================
+# Build Pre-compiled coolwsd Artifacts
+# =============================================================================
+#
+# This workflow compiles coolwsd from source and uploads the artifacts to
+# GitHub Releases for use in prebuilt Docker images.
+#
+# Trigger:
+#   - Manual dispatch with version input (e.g., v25.04-teamsync.1)
+#   - Push of v* tags
+#
+# Output:
+#   - coolwsd-teamsync-{version}.tar.gz (binaries + browser assets)
+#   - coolwsd-teamsync-{version}.tar.gz.sha256 (checksum)
+#
+# =============================================================================
+
+name: Build Pre-compiled Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v25.04-teamsync.1)'
+        required: true
+        type: string
+  push:
+    tags:
+      - 'v*'
+
+env:
+  ARTIFACT_NAME: coolwsd-teamsync
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Determine version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            VERSION="${{ inputs.version }}"
+          else
+            VERSION="${GITHUB_REF#refs/tags/}"
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Building version: $VERSION"
+
+      - name: Free disk space
+        run: |
+          echo "Before cleanup:"
+          df -h
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL /opt/hostedtoolcache/go
+          sudo docker system prune -af
+          echo "After cleanup:"
+          df -h
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build coolwsd artifacts
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Build and export artifacts using the multi-stage Dockerfile
+          docker build \
+            --target artifact-export \
+            --output type=local,dest=./artifacts \
+            -f .github/dockerfiles/Dockerfile.build-artifact \
+            .
+
+          echo "Build complete. Artifact contents:"
+          find ./artifacts -type f | head -50
+
+      - name: Create tarball with manifest
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+
+          cd artifacts
+
+          # Create manifest with build info
+          cat > manifest.json << EOF
+          {
+            "version": "$VERSION",
+            "build_date": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "git_sha": "${{ github.sha }}",
+            "git_ref": "${{ github.ref }}",
+            "runner": "${{ runner.os }}"
+          }
+          EOF
+
+          # Create tarball
+          cd ..
+          tar -czvf ${ARTIFACT_NAME}-${VERSION}.tar.gz -C artifacts .
+
+          # Generate checksum
+          sha256sum ${ARTIFACT_NAME}-${VERSION}.tar.gz > ${ARTIFACT_NAME}-${VERSION}.tar.gz.sha256
+
+          echo "Tarball created:"
+          ls -lh ${ARTIFACT_NAME}-${VERSION}.*
+          echo ""
+          echo "Checksum:"
+          cat ${ARTIFACT_NAME}-${VERSION}.tar.gz.sha256
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}-${{ steps.version.outputs.version }}
+          path: |
+            ${{ env.ARTIFACT_NAME }}-*.tar.gz
+            ${{ env.ARTIFACT_NAME }}-*.tar.gz.sha256
+          retention-days: 30
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: "TeamSync coolwsd Artifacts ${{ steps.version.outputs.version }}"
+          body: |
+            ## Pre-compiled coolwsd Artifacts
+
+            These artifacts contain pre-compiled coolwsd binaries with TeamSync branding.
+
+            ### Contents
+            - **coolwsd**: Collabora Online WebSocket Daemon
+            - **coolforkit**: Forking process for document isolation
+            - **coolmount**: Mount helper utility
+            - **browser**: Web client assets (JavaScript, CSS, HTML)
+
+            ### Usage
+
+            Download and extract in your Dockerfile:
+            ```dockerfile
+            ARG COOLWSD_VERSION=${{ steps.version.outputs.version }}
+            RUN curl -fsSL "https://github.com/${{ github.repository }}/releases/download/${COOLWSD_VERSION}/coolwsd-teamsync-${COOLWSD_VERSION}.tar.gz" \
+                | tar -xzf - -C /
+            ```
+
+            ### Verification
+
+            Verify the checksum before use:
+            ```bash
+            sha256sum -c coolwsd-teamsync-${{ steps.version.outputs.version }}.tar.gz.sha256
+            ```
+
+            ### Build Info
+            - Git SHA: `${{ github.sha }}`
+            - Build Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          files: |
+            ${{ env.ARTIFACT_NAME }}-${{ steps.version.outputs.version }}.tar.gz
+            ${{ env.ARTIFACT_NAME }}-${{ steps.version.outputs.version }}.tar.gz.sha256
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
