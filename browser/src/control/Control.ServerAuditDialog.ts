@@ -396,6 +396,17 @@ class ServerAuditDialog {
 	}
 
 	private isErrorEntry(entry: AuditEntry): boolean {
+		// In cloud mode, 'contained:uncontained' and 'bindmounted:slow' are expected
+		// and should not be counted as errors
+		if (this.isCloudMode()) {
+			if (entry.code === 'contained' && entry.status === 'uncontained') {
+				return false;
+			}
+			if (entry.code === 'bindmounted' && entry.status === 'slow') {
+				return false;
+			}
+		}
+
 		return (
 			!this.isInfoEntry(entry) &&
 			entry.status !== 'ok' &&
