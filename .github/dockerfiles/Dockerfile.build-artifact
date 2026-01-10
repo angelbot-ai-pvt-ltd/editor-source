@@ -1,0 +1,106 @@
+# =============================================================================
+# Dockerfile.build-artifact - Build coolwsd artifacts for GitHub Release
+# =============================================================================
+#
+# This Dockerfile compiles coolwsd from source and exports only the built
+# artifacts (binaries + browser assets) for use in prebuilt Docker images.
+#
+# Usage:
+#   docker build --target artifact-export --output type=local,dest=./artifacts \
+#     -f .github/dockerfiles/Dockerfile.build-artifact .
+#
+# Output: /opt/cool/ directory containing:
+#   - bin/coolwsd, bin/coolforkit, bin/coolmount
+#   - share/coolwsd/browser/dist/* (JS, CSS, HTML)
+#   - share/coolwsd/discovery.xml, favicon.ico
+#
+# =============================================================================
+
+FROM debian:bookworm-slim AS builder
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    git \
+    automake \
+    autoconf \
+    libtool \
+    pkg-config \
+    libcap-dev \
+    libpng-dev \
+    libssl-dev \
+    libpam-dev \
+    libzstd-dev \
+    libpoco-dev \
+    libcppunit-dev \
+    python3 \
+    python3-lxml \
+    python3-polib \
+    nodejs \
+    npm \
+    curl \
+    ca-certificates \
+    rsync \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
+
+# Copy the source code (this Dockerfile runs in the editor-source repo context)
+COPY . /build/online
+
+# Download LibreOfficeKit headers from LibreOffice core master branch
+# Master branch uses '_LibreOfficeKit' struct naming which is compatible with coolwsd
+RUN mkdir -p /build/lokit-headers/LibreOfficeKit \
+    && curl -fsSL https://raw.githubusercontent.com/LibreOffice/core/master/include/LibreOfficeKit/LibreOfficeKit.h \
+        -o /build/lokit-headers/LibreOfficeKit/LibreOfficeKit.h \
+    && curl -fsSL https://raw.githubusercontent.com/LibreOffice/core/master/include/LibreOfficeKit/LibreOfficeKit.hxx \
+        -o /build/lokit-headers/LibreOfficeKit/LibreOfficeKit.hxx \
+    && curl -fsSL https://raw.githubusercontent.com/LibreOffice/core/master/include/LibreOfficeKit/LibreOfficeKitEnums.h \
+        -o /build/lokit-headers/LibreOfficeKit/LibreOfficeKitEnums.h \
+    && curl -fsSL https://raw.githubusercontent.com/LibreOffice/core/master/include/LibreOfficeKit/LibreOfficeKitInit.h \
+        -o /build/lokit-headers/LibreOfficeKit/LibreOfficeKitInit.h \
+    && curl -fsSL https://raw.githubusercontent.com/LibreOffice/core/master/include/LibreOfficeKit/LibreOfficeKitTypes.h \
+        -o /build/lokit-headers/LibreOfficeKit/LibreOfficeKitTypes.h
+
+# Install npm dependencies for browser build
+WORKDIR /build/online/browser
+RUN npm install --no-audit --no-fund
+
+# Configure and build coolwsd with production optimizations
+WORKDIR /build/online
+RUN ./autogen.sh && ./configure \
+    --prefix=/opt/cool \
+    --with-lokit-path=/build/lokit-headers \
+    --with-lo-path=/opt/collaboraoffice \
+    --with-app-name="TeamSync Editor" \
+    --with-vendor="TeamSync" \
+    --disable-setcap \
+    --disable-debug \
+    --enable-silent-rules \
+    CXXFLAGS="-O2 -g0" \
+    CFLAGS="-O2 -g0"
+
+RUN make -j$(nproc)
+RUN make DESTDIR=/install install
+
+# Strip debug symbols for smaller binaries
+RUN find /install -type f \( -name "*.so" -o -name "*.so.*" -o -name "coolwsd" -o -name "coolforkit" \) \
+    -exec strip --strip-unneeded {} \; 2>/dev/null || true
+
+# Remove unnecessary files from the artifact
+RUN rm -rf /install/opt/cool/share/coolwsd/browser/src \
+           /install/opt/cool/share/coolwsd/browser/node_modules \
+           /install/opt/cool/share/coolwsd/browser/*.json \
+           /install/opt/cool/share/coolwsd/browser/*.ts \
+           /install/opt/cool/share/coolwsd/browser/Makefile* \
+    2>/dev/null || true
+
+# =============================================================================
+# Export stage - output only the built artifacts
+# =============================================================================
+FROM scratch AS artifact-export
+
+# Copy only the built coolwsd components
+COPY --from=builder /install/opt/cool/ /opt/cool/
