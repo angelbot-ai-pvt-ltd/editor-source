@@ -15,6 +15,11 @@
 
 declare var JSDialog: any;
 
+// Ensure JSDialog is initialized (defensive check for bundle order issues)
+if (typeof JSDialog === 'undefined') {
+	(window as any).JSDialog = { verbose: false };
+}
+
 let counter = 0;
 
 function makeIdUnique(id: string) {
