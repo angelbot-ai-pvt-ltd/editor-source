@@ -455,7 +455,7 @@ app.definitions.Socket = class Socket extends SocketBase {
 			var h = this.WSDServer.Hash;
 			if (parseInt(h,16).toString(16) === h.toLowerCase().replace(/^0+/, '')) {
 				const anchor = document.createElement('a');
-				anchor.setAttribute('href', 'https://github.com/CollaboraOnline/online/commits/' + h);
+				anchor.setAttribute('href', 'https://github.com/angelbot-ai-pvt-ltd/editor-source/commits/' + h);
 				anchor.setAttribute('target', '_blank');
 				anchor.textContent = h;
 

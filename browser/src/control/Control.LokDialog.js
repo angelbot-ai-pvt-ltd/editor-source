@@ -303,6 +303,7 @@ window.L.Control.LokDialog = window.L.Control.extend({
 
 		if (e.title && typeof brandProductName !== 'undefined') {
 			e.title = e.title.replace('Collabora Office', brandProductName);
+			e.title = e.title.replace('Collabora Online', brandProductName);
 		}
 
 		if (e.action === 'created') {
