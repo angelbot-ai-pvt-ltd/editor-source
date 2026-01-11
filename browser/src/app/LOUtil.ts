@@ -329,6 +329,7 @@ class LOUtil {
 			closemobile: 'closedocmobile',
 			'file-saveas': 'saveas',
 			'home-search': 'recsearch',
+			searchdialog: 'searchreplace',
 			searchdialog3finitialfocusreplace3abool3dtrue: 'searchreplace',
 			'addmb-menu': 'ok',
 			closetablet: 'view',
