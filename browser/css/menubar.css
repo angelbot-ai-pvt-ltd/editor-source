@@ -387,6 +387,13 @@ nav.hasnotebookbar [id^='save'].saved::after {
 	background-position: center;
 }
 
+.teamsync-icon-img {
+	background-image: url('images/teamsync-icon.svg');
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 #menu-last-mod a {
 	color: var(--color-text-lighter);
 	padding: 8px 15px 7px;

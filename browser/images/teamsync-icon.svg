@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top person - Blue -->
+  <circle cx="16" cy="6" r="3.5" fill="#3B82F6"/>
+  <path d="M16 10C13.5 10 11 11.5 11 14V15H21V14C21 11.5 18.5 10 16 10Z" fill="#3B82F6"/>
+
+  <!-- Right person - Green -->
+  <circle cx="26" cy="16" r="3.5" fill="#10B981"/>
+  <path d="M26 20C23.5 20 21 21.5 21 24V25H31V24C31 21.5 28.5 20 26 20Z" fill="#10B981"/>
+
+  <!-- Bottom person - Red -->
+  <circle cx="16" cy="26" r="3.5" fill="#EF4444"/>
+  <path d="M16 30C13.5 30 11 31.5 11 34V35H21V34C21 31.5 18.5 30 16 30Z" fill="#EF4444"/>
+
+  <!-- Left person - Orange -->
+  <circle cx="6" cy="16" r="3.5" fill="#F97316"/>
+  <path d="M6 20C3.5 20 1 21.5 1 24V25H11V24C11 21.5 8.5 20 6 20Z" fill="#F97316"/>
+
+  <!-- Connecting lines in center -->
+  <circle cx="16" cy="16" r="2" fill="#64748B" opacity="0.3"/>
+  <line x1="16" y1="10" x2="16" y2="14" stroke="#64748B" stroke-width="1.5" opacity="0.4"/>
+  <line x1="21" y1="16" x2="18" y2="16" stroke="#64748B" stroke-width="1.5" opacity="0.4"/>
+  <line x1="16" y1="22" x2="16" y2="18" stroke="#64748B" stroke-width="1.5" opacity="0.4"/>
+  <line x1="11" y1="16" x2="14" y2="16" stroke="#64748B" stroke-width="1.5" opacity="0.4"/>
+</svg>

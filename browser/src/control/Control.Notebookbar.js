@@ -89,17 +89,17 @@ window.L.Control.Notebookbar = window.L.Control.extend({
 			var iconTooltip;
 			if (!window.logoURL) {
 				if (docType === 'text') {
-					iconClass += ' writer-icon-img';
-					iconTooltip = 'Writer';
+					iconClass += ' teamsync-icon-img';
+					iconTooltip = 'TeamSync Document';
 				} else if (docType === 'spreadsheet') {
-					iconClass += ' calc-icon-img';
-					iconTooltip = 'Calc';
+					iconClass += ' teamsync-icon-img';
+					iconTooltip = 'TeamSync Sheets';
 				} else if (docType === 'presentation') {
-					iconClass += ' impress-icon-img';
-					iconTooltip = 'Impress';
+					iconClass += ' teamsync-icon-img';
+					iconTooltip = 'TeamSync Presentation';
 				} else if (docType === 'drawing') {
-					iconClass += ' draw-icon-img';
-					iconTooltip = 'Draw';
+					iconClass += ' teamsync-icon-img';
+					iconTooltip = 'TeamSync Draw';
 				}
 			}
 			var docLogo = window.L.DomUtil.create('a', iconClass, docLogoHeader);
