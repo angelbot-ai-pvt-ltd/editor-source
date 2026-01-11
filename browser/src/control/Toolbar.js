@@ -47,6 +47,32 @@ window.L.Map.include({
 		return this['stateChangeHandler'].getItemValue('.uno:CharFontName');
 	},
 
+	// Font display name mapping - show familiar MS Office names for open-source alternatives
+	fontDisplayNames: {
+		'Liberation Sans': 'Arial',
+		'Liberation Serif': 'Times New Roman',
+		'Liberation Mono': 'Courier New',
+		'Carlito': 'Calibri',
+		'Caladea': 'Cambria',
+		'Cousine': 'Consolas',
+		'Arimo': 'Arial'
+	},
+
+	// Get display name for a font (maps open-source fonts to familiar MS names)
+	getFontDisplayName: function(fontName) {
+		return this.fontDisplayNames[fontName] || fontName;
+	},
+
+	// Get actual font name from display name (reverse lookup)
+	getActualFontName: function(displayName) {
+		for (var actual in this.fontDisplayNames) {
+			if (this.fontDisplayNames[actual] === displayName) {
+				return actual;
+			}
+		}
+		return displayName;
+	},
+
 	createFontSelector: function(nodeSelector) {
 		var that = this;
 
@@ -70,7 +96,8 @@ window.L.Map.include({
 			for (var i = 0; i < data.length; ++i) {
 				if (!data[i]) continue;
 				var option = document.createElement('option');
-				option.text = data[i];
+				// Display familiar MS Office font names, but keep actual font as value
+				option.text = that.getFontDisplayName(data[i]);
 				option.value = data[i];
 				fontcombobox.append(option);
 			}
@@ -100,7 +127,8 @@ window.L.Map.include({
 			if (!found && state) {
 				fontcombobox
 					.append($('<option></option>')
-						.text(state));
+						.text(that.getFontDisplayName(state))
+						.val(state));
 			}
 
 			fontcombobox.val(state).trigger('change');
