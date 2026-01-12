@@ -26,6 +26,22 @@
 
 /* global JSDialog app _ $ */
 
+// Font display name mapping - show familiar MS Office names for open-source alternatives
+JSDialog.fontDisplayNames = {
+	'Liberation Sans': 'Arial',
+	'Liberation Serif': 'Times New Roman',
+	'Liberation Mono': 'Courier New',
+	'Carlito': 'Calibri',
+	'Caladea': 'Cambria',
+	'Cousine': 'Consolas',
+	'Arimo': 'Arial'
+};
+
+// Get display name for a font (maps open-source fonts to familiar MS names)
+JSDialog.getFontDisplayName = function(fontName) {
+	return JSDialog.fontDisplayNames[fontName] || fontName;
+};
+
 JSDialog.comboboxEntry = function (parentContainer, data, builder) {
 	var entry = window.L.DomUtil.create('div', 'ui-combobox-entry ' + builder.options.cssClass, parentContainer);
 	entry.id = data.id;
@@ -50,7 +66,9 @@ JSDialog.comboboxEntry = function (parentContainer, data, builder) {
 	}
 
 	var content = window.L.DomUtil.create('span', '', entry);
-	content.innerText = data.text;
+	// For font combobox entries, show display name (e.g., "Arial" instead of "Liberation Sans")
+	var displayText = data.comboboxId === 'fontnamecombobox' ? JSDialog.getFontDisplayName(data.text) : data.text;
+	content.innerText = displayText;
 
     if (data.selected) {
         entry.setAttribute('aria-selected', 'true');
@@ -195,7 +213,9 @@ JSDialog.combobox = function (parentContainer, data, builder) {
 
 	var content = window.L.DomUtil.create('input', 'ui-combobox-content ' + builder.options.cssClass, container);
 	content.id = data.id + '-input-' + builder.options.suffix;
-	content.value = data.text;
+	// For font combobox, show display name (e.g., "Arial" instead of "Liberation Sans")
+	var isFontCombobox = data.id === 'fontnamecombobox';
+	content.value = isFontCombobox ? JSDialog.getFontDisplayName(data.text) : data.text;
 	content.role = 'combobox';
 	content.setAttribute('autocomplete', 'off');
 	content.setAttribute('aria-autocomplete', 'list');
@@ -344,7 +364,8 @@ JSDialog.combobox = function (parentContainer, data, builder) {
 	container.onSetText = function (text) {
 		if (document.activeElement === content)
 			return;
-		content.value = text;
+		// For font combobox, show display name (e.g., "Arial" instead of "Liberation Sans")
+		content.value = isFontCombobox ? JSDialog.getFontDisplayName(text) : text;
 	};
 
 	return false;
